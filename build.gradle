@@ -1,0 +1,59 @@
+apply plugin: 'java'
+apply plugin: 'eclipse-wtp'
+//apply plugin: 'spring-boot' 
+//apply plugin: 'war'
+apply plugin: 'maven'
+apply plugin: 'idea'
+
+version = '0.0.1' 
+
+jar {
+    baseName = 'rest-connector'
+    version =  version
+}
+group = 'com.rest.connector'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+	jcenter();
+}
+
+configurations {
+	providedRuntime
+}
+
+repositories {
+    maven { url "https://repo.spring.io/release" }
+}
+
+dependencies {
+	// https://mvnrepository.com/artifact/org.springframework/spring-web
+	compile group: 'org.springframework', name: 'spring-web', version: '4.1.9.RELEASE'
+	// https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
+	//compile group: 'com.service.core' 
+	compile ("com.service.core:service-core:0.0.1")
+	//compile("org.springframework.boot:spring-boot-starter")
+   // compile("org.springframework:spring-web")
+	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-context
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-context', version: '1.1.1.RELEASE'
+	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+	
+}
+
+
+eclipse {
+	classpath {
+		 containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
+		 containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
+	}
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.9'
+}
