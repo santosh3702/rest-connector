@@ -31,6 +31,7 @@ repositories {
 }
 
 dependencies {
+	//compile("com.fasterxml.jackson.core:jackson-databind")
 	// https://mvnrepository.com/artifact/org.springframework/spring-web
 	compile group: 'org.springframework', name: 'spring-web', version: '4.1.9.RELEASE'
 	// https://mvnrepository.com/artifact/org.slf4j/slf4j-api
@@ -43,6 +44,7 @@ dependencies {
 	compile group: 'org.springframework.cloud', name: 'spring-cloud-context', version: '1.1.1.RELEASE'
 	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
 	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+	
 	
 }
 
